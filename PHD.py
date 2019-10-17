@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[806]:
-
-
 from scipy import linalg as LA
 from numpy  import *
 import math
@@ -13,7 +7,7 @@ class CoupledHarmonicOscillator:
     def __init__(self, Window, FreqIndex, Gain):
         
         assert(isinstance(Window, int) and Window > 1),"Window must be a scalar Int greater that unity"
-        assert(isinstance(FreqIndex, ndarray) and FreqIndex.dtype == "int" and  all(FreqIndex >= 0)), "FreqIndex must be an array of positive Int"
+        assert(isinstance(FreqIndex, ndarray) and Freqndex.dtype == "int" and  all(FreqIndex >= 0)), "FreqIndex must be an array of positive Int"
         assert(FreqIndex.shape == (len(FreqIndex),1)), "FreqIndex must be a 2D array with shape.FreqIndex[1] = 1"
         assert(isinstance(Gain, ndarray)),"Gain must be an array"
         assert(Gain.shape[0]/Gain.shape[1] == len(FreqIndex)), "Gain and FreqIndex shape inconcitency"
@@ -62,77 +56,3 @@ class CoupledHarmonicOscillator:
         if [0] in self.FreqIndex:
             Flip_Operator = delete(Flip_Operator, range(Width - Dim, Width), axis = 0)
         return vstack([conj(Flip_Operator @ X_array),X_array]) 
-
-    
-    
-
-    
-
-
-# In[807]:
-
-
-H =CoupledHarmonicOscillator(2, array([0,1]), array([[0.5],[0.5]]))
-
-
-# In[778]:
-
-
-Freq = H.FreqIndex
-
-
-# In[704]:
-
-
-Freq.dtype
-
-
-# In[705]:
-
-
-Freq
-
-
-# In[684]:
-
-
-Freq.dtype == "int"
-
-
-# In[680]:
-
-
-print(Freq < 0)
-
-
-# In[683]:
-
-
-if not all(Freq >= 0):
-    print("negative value found")
-
-
-# In[682]:
-
-
-S = Freq <= 0
-print(S)
-
-
-# In[716]:
-
-
-S = [[2],[3]]
-
-
-# In[717]:
-
-
-S.dtype
-
-
-# In[ ]:
-
-
-
-
