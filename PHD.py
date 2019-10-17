@@ -7,7 +7,7 @@ class CoupledHarmonicOscillator:
     def __init__(self, Window, FreqIndex, Gain):
         
         assert(isinstance(Window, int) and Window > 1),"Window must be a scalar Int greater that unity"
-        assert(isinstance(FreqIndex, ndarray) and Freqndex.dtype == "int" and  all(FreqIndex >= 0)), "FreqIndex must be an array of positive Int"
+        assert(isinstance(FreqIndex, ndarray) and FreqIndex.dtype == "int" and  all(FreqIndex >= 0)), "FreqIndex must be an array of positive Int"
         assert(FreqIndex.shape == (len(FreqIndex),1)), "FreqIndex must be a 2D array with shape.FreqIndex[1] = 1"
         assert(isinstance(Gain, ndarray)),"Gain must be an array"
         assert(Gain.shape[0]/Gain.shape[1] == len(FreqIndex)), "Gain and FreqIndex shape inconcitency"
