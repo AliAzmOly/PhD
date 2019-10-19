@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[918]:
-
-
 from scipy import linalg as LA
 from numpy  import *
 import math
